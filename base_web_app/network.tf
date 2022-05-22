@@ -16,6 +16,9 @@ data "aws_ssm_parameter" "ami" {
   name = "/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2"
 }
 
+data "aws_availability_zones" "available" {
+  state = "available"
+}
 ##################################################################################
 # RESOURCES
 ##################################################################################
@@ -37,9 +40,10 @@ resource "aws_internet_gateway" "igw" {
 }
 
 resource "aws_subnet" "subnet1" {
-  cidr_block              = var.vpc_subnet1_cidr_block
+  cidr_block              = var.vpc_subnets_cidr_block[0]
   vpc_id                  = aws_vpc.vpc.id
   map_public_ip_on_launch = var.map_public_ip_on_launch
+  availability_zone = data.aws_availability_zones.available.names[0]
 }
 
 # ROUTING #
