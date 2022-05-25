@@ -1,15 +1,3 @@
-variable "aws_access_key" {
-  type        = string
-  description = "AWS Access Key"
-  sensitive   = true
-}
-
-variable "aws_secret_key" {
-  type        = string
-  description = "AWS Secret Key"
-  sensitive   = true
-}
-
 variable "aws_region" {
   type        = string
   description = "AWS0 Region to use for resources"
@@ -49,7 +37,7 @@ variable "instance_type" {
 variable "company" {
   type        = string
   description = "Company name for resource tagging"
-  default = "kubernetes-cox"
+  default     = "kubernetes-cox"
 }
 
 variable "project" {

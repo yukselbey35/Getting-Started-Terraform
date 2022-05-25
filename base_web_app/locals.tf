@@ -1,3 +1,9 @@
+resource "random_integer" "priority" {
+  min = 1
+  max = 50000
+  
+}
+
 locals {
   common_tags = {
     company      = var.company
