@@ -29,7 +29,7 @@ resource "aws_internet_gateway" "igw" {
 
 }
 #Subnet settings
-resource "aws_subnet" "subnet1" {
+resource "aws_subnet" "subnets" {
   cidr_block              = var.vpc_subnets_cidr_block[0]
   vpc_id                  = aws_vpc.vpc.id
   map_public_ip_on_launch = var.map_public_ip_on_launch

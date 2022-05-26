@@ -15,6 +15,12 @@ variable "vpc_cidr_block" {
   description = "CIDR Block for VPC"
   default     = "10.0.0.0/16"
 }
+variable "vpc_subnets_count" {
+  type = number
+  description = "Number of subnets to create"
+  default = 2
+  
+}
 
 variable "vpc_subnets_cidr_block" {
   type        = list(string)

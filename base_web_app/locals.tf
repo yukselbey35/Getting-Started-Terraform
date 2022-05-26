@@ -1,7 +1,8 @@
-resource "random_integer" "priority" {
-  min = 1
-  max = 50000
-  
+// append to S3 buckets
+#Random ID for unique naming
+resource "random_integer" "rand" {
+  min = 10000
+  max = 99999
 }
 
 locals {
@@ -10,4 +11,6 @@ locals {
     project      = "${var.company}-${var.project}"
     billing_code = var.billing_code
   }
+
+  s3_bucket_name = "globo-web-app-${random_integer.rand.result}"
 }
